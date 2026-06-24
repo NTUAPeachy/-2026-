@@ -288,7 +288,9 @@ textarea::placeholder{color:#bbb}
 
 <script>
 /* ══ 設定區（拿到 Apps Script 網址後填在這裡） ══ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbyA5Wc0hDMzjl-Z_UAple22t-14JkR4Jrzi4HAFzASaUDno8pwWubBdE8V1irplVKzdIQ/exec';  // 貼上你的 Apps Script 網址
+const SUPABASE_URL = 'https://mxmmknfoedjcpnkaedlc.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14bW1rbmZvZWRqY3Bua2FlZGxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyODQ5ODAsImV4cCI6MjA5Nzg2MDk4MH0.UiOcd6uprqpDZOdEgDIjDiq0CZ2G7aEvQEtJ3eOm_Sw';
+  const API_URL = `${SUPABASE_URL}/rest/v1/responses`;
 const ADMIN_PW = 'antique2026';  // 可自行修改密碼
 
 /* ══════════════════════════════════════════════ */
@@ -382,13 +384,36 @@ async function submitSurvey() {
   }
 
   try {
-    const form = new FormData();
-    form.append('data', JSON.stringify(data));
-    await fetch(API_URL, {
+    const record = {
+      q1: data.q1 || null,
+      q2: data.q2 || null,
+      q3: data.q3 || null,
+      q4: data.q4 || null,
+      q5: data.q5 || null,
+      q6: data.q6 || null,
+      q7: data.q7 || null,
+      q8: data.q8 || null,
+      q9: data.q9 || null,
+      q10: data.q10 || null,
+      q11: data.q11 || null,
+      q12: data.q12 || null,
+      q13: data.q13 || null,
+      q14: data.q14 || null,
+      q15: (data.q15 || []).join('、') || null,
+      q16: data.q16 || null,
+      q17: data.q17 || null
+    };
+    const res = await fetch(API_URL, {
       method: 'POST',
-      mode: 'no-cors',
-      body: form
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(record)
     });
+    if (!res.ok) throw new Error('API error');
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('done-wrap').style.display = 'block';
   } catch(e) {
@@ -425,14 +450,21 @@ function checkPw() {
 /* ── 統計報告 ── */
 async function renderReport() {
   const area = document.getElementById('report');
-  area.innerHTML = `<div class="setup-notice" style="background:#E8F5F0;border-color:#9FE1CB;color:#085041">
-    <strong>📊 統計資料請至 Google 試算表查看</strong>
-    所有問卷回覆已自動儲存至 Google 試算表，請點下方連結開啟。
-    <br><br>
-    <a href="https://docs.google.com/spreadsheets/d/13rSyhfD2m97wpspbwnrqGhjUAcXdf3f-HlwOL79ofzk/edit" target="_blank" style="display:inline-block;margin-top:.25rem;padding:8px 20px;background:#0F6E56;color:#fff;border-radius:6px;text-decoration:none;font-weight:600">開啟 Google 試算表</a>
-  </div>`;
-  return;
+  area.innerHTML = '<div class="loading">載入中…</div>';
   let responses = [];
+  try {
+    const res = await fetch(API_URL + '?select=*&order=created_at.desc', {
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`
+      }
+    });
+    if (!res.ok) throw new Error('fetch error');
+    responses = await res.json();
+  } catch(e) {
+    area.innerHTML = '<div class="empty">無法取得資料，請確認網路連線。</div>';
+    return;
+  }
 
   if(responses.length === 0) {
     area.innerHTML = '<div class="empty">尚無回覆資料</div>';

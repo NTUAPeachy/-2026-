@@ -238,6 +238,7 @@ textarea::placeholder{color:#bbb}
           <label class="opt"><div class="square"><span class="chk">✓</span></div><span class="opt-txt">古物保存環境與設備改善</span></label>
           <label class="opt"><div class="square"><span class="chk">✓</span></div><span class="opt-txt">災害應變與緊急搶救演練</span></label>
           <label class="opt"><div class="square"><span class="chk">✓</span></div><span class="opt-txt">古物清冊與數位化建置</span></label>
+          <label class="opt"><div class="square"><span class="chk">✓</span></div><span class="opt-txt">修護委外評估與廠商遴選</span></label>
         </div>
       </div>
 
@@ -287,7 +288,7 @@ textarea::placeholder{color:#bbb}
 
 <script>
 /* ══ 設定區（拿到 Apps Script 網址後填在這裡） ══ */
-const API_URL = '';  // https://script.google.com/macros/s/AKfycbz6pa22oSzHcx-Gk7D9z46CxHrdJfUZIrmuXCICjtNk0Z_FXUg-PmdoWt5z8SQGD5dhbw/exec
+const API_URL = '';  // https://script.google.com/macros/s/AKfycbzijGL7Rj02GFa_z0hjNEahF1Gp0Q_FyE5aiIX6Bsoz7cluhhcDqi5WJcLl6BWkDviZ5w/exec
 const ADMIN_PW = 'antique2026';  // 可自行修改密碼
 
 /* ══════════════════════════════════════════════ */
@@ -298,7 +299,7 @@ const SCALE_LABELS = {
   q9:'範本填寫實務', q10:'講師授課清晰度', q11:'教材完整性',
   q12:'案例貼近實務', q13:'信心提升程度', q14:'整體滿意度'
 };
-const CHECK_OPTS = ['古物劣化診斷與判讀實務','管理維護計畫撰寫與補助申請','古物保存環境與設備改善','災害應變與緊急搶救演練','古物清冊與數位化建置'];
+const CHECK_OPTS = ['古物劣化診斷與判讀實務','管理維護計畫撰寫與補助申請','古物保存環境與設備改善','災害應變與緊急搶救演練','古物清冊與數位化建置','修護委外評估與廠商遴選'];
 
 function showPage(p, btn) {
   document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));

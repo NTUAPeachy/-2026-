@@ -94,6 +94,8 @@ textarea::placeholder{color:#bbb}
 .btn-sm{padding:6px 14px;font-size:.78rem;background:#fff;border:1px solid #ccc;border-radius:6px;cursor:pointer;color:#666;font-family:inherit}
 .btn-sm:hover{border-color:#888}
 .empty{text-align:center;padding:3rem;color:#bbb;font-size:.9rem}
+.btn-del{padding:5px 12px;font-size:.75rem;background:#fff;border:1px solid #e0a0a0;border-radius:6px;cursor:pointer;color:#c0392b;font-family:inherit}
+.btn-del:hover{background:#fdf2f2;border-color:#c0392b}
 .loading{text-align:center;padding:2rem;color:#888;font-size:.9rem}
 @media(max-width:540px){.sbtn{width:36px;height:36px;font-size:.85rem}.scale-lbl{min-width:44px;font-size:.7rem}.bar-lbl{width:110px}}
 </style>
@@ -110,6 +112,7 @@ textarea::placeholder{color:#bbb}
   <div class="inner">
     <button class="nav-tab active" onclick="showPage('survey',this)">填寫問卷</button>
     <button class="nav-tab" onclick="showPage('admin',this)">統計報告</button>
+    <button class="nav-tab" onclick="showPage('responses',this)">回覆明細</button>
   </div>
 </nav>
 <main class="main">
@@ -190,6 +193,20 @@ textarea::placeholder{color:#bbb}
     </div>
     <div id="admin-content" style="display:none"><div id="report"></div></div>
   </div>
+  <div id="page-responses" class="page">
+    <div id="resp-guard">
+      <div class="guard-box">
+        <h3>🔒 回覆明細</h3>
+        <p>請輸入管理者密碼</p>
+        <input type="password" id="rpw-input" placeholder="密碼" onkeydown="if(event.key==='Enter')checkRpw()">
+        <div id="rpw-err" class="err-msg" style="display:none">密碼錯誤</div>
+        <button class="btn-primary" style="width:100%" onclick="checkRpw()">登入</button>
+      </div>
+    </div>
+    <div id="resp-content" style="display:none">
+      <div id="resp-area"></div>
+    </div>
+  </div>
 </main>
 <script>
 const SUPABASE_URL='https://mxmmknfoedjcpnkaedlc.supabase.co';
@@ -229,6 +246,48 @@ COPTS.forEach(opt=>{const cnt=rows.filter(r=>r.q15&&r.q15.includes(opt)).length;
 h+=`</div><div class="chart-block"><div class="section-hd"><div class="chart-ttl">所有回覆明細（${n} 份）</div><button class="btn-sm" onclick="loadReport()">重新整理</button></div><div class="resp-list">`;
 rows.forEach(r=>{const dt=r.created_at?new Date(r.created_at).toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';const badge=r.q1?(r.q1.includes('無機')?'無機材質場':'有機材質場'):'—';const sr=SIDS.map(id=>`<div class="resp-row"><span class="resp-q">${SLBL[id]}</span><span class="resp-a">${r[id]!=null?r[id]+' 分':'—'}</span></div>`).join('');const tags=r.q15?`<div class="tag-row">${r.q15.split('、').map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';const o16=r.q16?`<div class="resp-open"><strong>最有收穫：</strong>${r.q16}</div>`:'';const o17=r.q17?`<div class="resp-open" style="margin-top:5px"><strong>建議：</strong>${r.q17}</div>`:'';h+=`<div class="resp-card"><div class="resp-hd"><span class="resp-badge">${badge}</span><span class="resp-time">${dt}</span></div><div class="resp-row"><span class="resp-q">單位類別</span><span class="resp-a">${r.q2||'—'}</span></div>${sr}${tags}${o16}${o17}</div>`;});
 h+=`</div></div>`;area.innerHTML=h;}
+
+function checkRpw(){if(document.getElementById('rpw-input').value===ADMIN_PW){document.getElementById('resp-guard').style.display='none';document.getElementById('resp-content').style.display='block';loadResponses();}else{document.getElementById('rpw-err').style.display='block';}}
+
+async function deleteRow(id){
+  if(!confirm('確定要刪除這筆回覆？此操作無法復原。'))return;
+  try{
+    const r=await fetch(API+'?id=eq.'+id,{method:'DELETE',headers:HDR});
+    if(!r.ok)throw new Error(r.status);
+    loadResponses();
+    if(document.getElementById('admin-content').style.display!=='none')loadReport();
+  }catch(e){alert('刪除失敗：'+e.message);}
+}
+
+async function loadResponses(){
+  const area=document.getElementById('resp-area');
+  area.innerHTML='<div class="loading">載入中…</div>';
+  let rows=[];
+  try{const r=await fetch(API+'?select=*&order=created_at.desc&limit=500',{headers:HDR});if(!r.ok)throw new Error(r.status);rows=await r.json();}
+  catch(e){area.innerHTML='<div class="empty">載入失敗：'+e.message+'</div>';return;}
+  if(!rows.length){area.innerHTML='<div class="empty">尚無回覆資料</div>';return;}
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem"><div style="font-size:.9rem;font-weight:600">共 ${rows.length} 份回覆</div><button class="btn-sm" onclick="loadResponses()">重新整理</button></div><div class="resp-list">`;
+  rows.forEach(r=>{
+    const dt=r.created_at?new Date(r.created_at).toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';
+    const badge=r.q1?(r.q1.includes('無機')?'無機材質場':'有機材質場'):'—';
+    const sr=SIDS.map(id=>`<div class="resp-row"><span class="resp-q">${SLBL[id]}</span><span class="resp-a">${r[id]!=null?r[id]+' 分':'—'}</span></div>`).join('');
+    const tags=r.q15?`<div class="tag-row">${r.q15.split('、').map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';
+    const o16=r.q16?`<div class="resp-open"><strong>最有收穫：</strong>${r.q16}</div>`:'';
+    const o17=r.q17?`<div class="resp-open" style="margin-top:5px"><strong>建議：</strong>${r.q17}</div>`:'';
+    h+=`<div class="resp-card">
+      <div class="resp-hd">
+        <span class="resp-badge">${badge}</span>
+        <span style="display:flex;align-items:center;gap:10px">
+          <span class="resp-time">${dt}</span>
+          <button class="btn-del" onclick="deleteRow(${r.id})">刪除</button>
+        </span>
+      </div>
+      <div class="resp-row"><span class="resp-q">單位類別</span><span class="resp-a">${r.q2||'—'}</span></div>
+      ${sr}${tags}${o16}${o17}
+    </div>`;
+  });
+  h+=`</div>`;area.innerHTML=h;
+}
 </script>
 </body>
 </html>

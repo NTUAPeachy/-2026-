@@ -288,7 +288,7 @@ textarea::placeholder{color:#bbb}
 
 <script>
 /* ══ 設定區（拿到 Apps Script 網址後填在這裡） ══ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbzWFKW-qLz0yiAyqQYrc50UZbXnvR5THQQW73meQ8apB5fxc3pGimVBq2bNSshkmqzP/exec';  // 貼上你的 Apps Script 網址
+const API_URL = 'https://script.google.com/macros/s/AKfycbyA5Wc0hDMzjl-Z_UAple22t-14JkR4Jrzi4HAFzASaUDno8pwWubBdE8V1irplVKzdIQ/exec';  // 貼上你的 Apps Script 網址
 const ADMIN_PW = 'antique2026';  // 可自行修改密碼
 
 /* ══════════════════════════════════════════════ */
@@ -382,10 +382,12 @@ async function submitSurvey() {
   }
 
   try {
+    const form = new FormData();
+    form.append('data', JSON.stringify(data));
     await fetch(API_URL, {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify(data)
+      body: form
     });
     document.getElementById('form-wrap').style.display = 'none';
     document.getElementById('done-wrap').style.display = 'block';

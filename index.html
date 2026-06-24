@@ -425,22 +425,14 @@ function checkPw() {
 /* ── 統計報告 ── */
 async function renderReport() {
   const area = document.getElementById('report');
-  area.innerHTML = '<div class="loading">載入中…</div>';
-
-  if(!API_URL) {
-    area.innerHTML = `<div class="setup-notice"><strong>⚙️ 尚未連接後端</strong>請先完成 Apps Script 部署，並將網址填入 HTML 檔案第一行的 API_URL。</div><div class="empty">目前沒有資料可顯示</div>`;
-    return;
-  }
-
+  area.innerHTML = `<div class="setup-notice" style="background:#E8F5F0;border-color:#9FE1CB;color:#085041">
+    <strong>📊 統計資料請至 Google 試算表查看</strong>
+    所有問卷回覆已自動儲存至 Google 試算表，請點下方連結開啟。
+    <br><br>
+    <a href="https://docs.google.com/spreadsheets/d/13rSyhfD2m97wpspbwnrqGhjUAcXdf3f-HlwOL79ofzk/edit" target="_blank" style="display:inline-block;margin-top:.25rem;padding:8px 20px;background:#0F6E56;color:#fff;border-radius:6px;text-decoration:none;font-weight:600">開啟 Google 試算表</a>
+  </div>`;
+  return;
   let responses = [];
-  try {
-    const res = await fetch(API_URL);
-    const json = await res.json();
-    responses = json.data || [];
-  } catch(e) {
-    area.innerHTML = '<div class="empty">無法取得資料，請確認 API 網址是否正確。</div>';
-    return;
-  }
 
   if(responses.length === 0) {
     area.innerHTML = '<div class="empty">尚無回覆資料</div>';

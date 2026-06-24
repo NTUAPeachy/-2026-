@@ -3,109 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026臺北市古物管理維護計畫現況調查暨優化研習　學員滿意度問卷</title>
+<title>2026 臺北市古物管理維護計畫優化研習　學員滿意度問卷</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Noto Sans TC',Arial,sans-serif;background:#F5F5F0;color:#222;font-size:15px;line-height:1.7}
-a{color:#0F6E56}
-
-/* ── 版面 ── */
 .site-header{background:#1A5276;color:#fff;padding:1.25rem 0}
-.site-header .inner{max-width:720px;margin:0 auto;padding:0 1.5rem}
-.site-header h1{font-size:1.05rem;font-weight:500;opacity:.9;margin-bottom:.2rem}
-.site-header h2{font-size:1.4rem;font-weight:700;letter-spacing:.01em}
-.site-header p{font-size:.8rem;opacity:.7;margin-top:.3rem}
-
+.inner{max-width:720px;margin:0 auto;padding:0 1.5rem}
+.site-header h1{font-size:.95rem;font-weight:500;opacity:.85;margin-bottom:.15rem}
+.site-header h2{font-size:1.35rem;font-weight:700}
+.site-header p{font-size:.8rem;opacity:.7;margin-top:.25rem}
 .nav-bar{background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:100}
-.nav-bar .inner{max-width:720px;margin:0 auto;padding:0 1.5rem;display:flex;gap:0}
+.nav-bar .inner{display:flex}
 .nav-tab{padding:.75rem 1.25rem;background:transparent;border:none;border-bottom:2px solid transparent;cursor:pointer;font-size:.85rem;color:#666;font-family:inherit;margin-bottom:-1px}
 .nav-tab.active{color:#0F6E56;border-bottom-color:#0F6E56;font-weight:600}
 .nav-tab:hover:not(.active){color:#222}
-
 .main{max-width:720px;margin:0 auto;padding:2rem 1.5rem}
 .page{display:none}.page.active{display:block}
-
-/* ── 進度條 ── */
 .prog-wrap{height:4px;background:#ddd;border-radius:2px;margin-bottom:1.75rem}
 .prog-fill{height:100%;background:#0F6E56;border-radius:2px;transition:width .3s}
-
-/* ── 區塊標題 ── */
 .sec{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#1A5276;padding:.45rem .9rem;border-radius:4px;margin:2rem 0 1rem;display:inline-block}
-
-/* ── 問題 ── */
 .q{margin-bottom:1.5rem}
 .ql{font-size:.95rem;font-weight:500;margin-bottom:.6rem;line-height:1.5}
 .qn{font-size:.75rem;color:#999;margin-right:.3rem;font-weight:400}
 .hint{font-size:.8rem;color:#888;margin-bottom:.6rem}
-
-/* ── Radio / Checkbox ── */
 .opts{display:flex;flex-direction:column;gap:7px}
-.opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #ddd;border-radius:8px;cursor:pointer;background:#fff;transition:border-color .1s,background .1s;user-select:none}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid #ddd;border-radius:8px;cursor:pointer;background:#fff;transition:border-color .1s;user-select:none}
 .opt:hover{border-color:#999}
 .opt.sel{border-color:#0F6E56;background:#E8F5F0}
-.circle{width:16px;height:16px;border-radius:50%;border:1.5px solid #bbb;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .1s}
+.circle{width:16px;height:16px;border-radius:50%;border:1.5px solid #bbb;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .opt.sel .circle{border-color:#0F6E56;background:#0F6E56}
 .circle-in{width:6px;height:6px;border-radius:50%;background:#fff;display:none}
 .opt.sel .circle-in{display:block}
-.square{width:16px;height:16px;border-radius:4px;border:1.5px solid #bbb;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .1s}
+.square{width:16px;height:16px;border-radius:4px;border:1.5px solid #bbb;flex-shrink:0;display:flex;align-items:center;justify-content:center}
 .opt.sel .square{border-color:#0F6E56;background:#0F6E56}
 .chk{display:none;color:#fff;font-size:11px;font-weight:700}
 .opt.sel .chk{display:block}
 .opt-txt{font-size:.9rem;color:#333}
 .opt.sel .opt-txt{color:#085041;font-weight:500}
-
-/* ── 量表 ── */
 .scale-wrap{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .scale-lbl{font-size:.75rem;color:#888;min-width:56px}
 .scale-lbl.r{text-align:right}
 .scale-btns{display:flex;gap:5px}
-.sbtn{width:42px;height:42px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer;font-size:.9rem;font-weight:500;color:#555;transition:all .1s;font-family:inherit}
+.sbtn{width:42px;height:42px;border:1px solid #ccc;border-radius:8px;background:#fff;cursor:pointer;font-size:.9rem;font-weight:500;color:#555;font-family:inherit}
 .sbtn:hover{border-color:#888;background:#f5f5f5}
 .sbtn.sel{background:#0F6E56;border-color:#0F6E56;color:#fff}
-
-/* ── 文字區 ── */
 textarea{width:100%;min-height:80px;border:1px solid #ccc;border-radius:8px;padding:10px 13px;font-size:.9rem;color:#333;background:#fff;resize:vertical;font-family:inherit;line-height:1.6}
 textarea:focus{outline:none;border-color:#0F6E56}
 textarea::placeholder{color:#bbb}
-
-/* ── 按鈕 ── */
-.btn-row{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eee;display:flex;gap:10px;flex-wrap:wrap}
-.btn-primary{padding:11px 28px;background:#0F6E56;border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .1s}
+.btn-row{margin-top:2rem;padding-top:1.5rem;border-top:1px solid #eee;display:flex;gap:10px}
+.btn-primary{padding:11px 28px;background:#0F6E56;border:none;border-radius:8px;color:#fff;font-size:.9rem;font-weight:600;cursor:pointer;font-family:inherit}
 .btn-primary:hover{background:#085041}
 .btn-primary:disabled{background:#aaa;cursor:not-allowed}
-.btn-ghost{padding:11px 20px;background:#fff;border:1px solid #ccc;border-radius:8px;color:#555;font-size:.9rem;cursor:pointer;font-family:inherit;transition:all .1s}
-.btn-ghost:hover{border-color:#888;color:#222}
-
-/* ── 完成畫面 ── */
+.btn-ghost{padding:11px 20px;background:#fff;border:1px solid #ccc;border-radius:8px;color:#555;font-size:.9rem;cursor:pointer;font-family:inherit}
+.btn-ghost:hover{border-color:#888}
 .done-box{background:#E8F5F0;border-radius:12px;padding:2.5rem;text-align:center;border:1px solid #9FE1CB}
-.done-box .icon{font-size:2.5rem;margin-bottom:.75rem}
 .done-box h3{font-size:1.1rem;font-weight:700;color:#085041;margin-bottom:.4rem}
 .done-box p{font-size:.9rem;color:#0F6E56}
-
-/* ── 統計後台 ── */
 .guard-box{background:#fff;border:1px solid #ddd;border-radius:12px;padding:2rem;text-align:center;max-width:360px;margin:2rem auto}
 .guard-box h3{font-size:1rem;font-weight:600;margin-bottom:.5rem}
 .guard-box p{font-size:.85rem;color:#888;margin-bottom:1.25rem}
 .guard-box input{width:100%;padding:10px 13px;border:1px solid #ccc;border-radius:8px;font-size:.9rem;font-family:inherit;margin-bottom:.75rem}
 .guard-box input:focus{outline:none;border-color:#0F6E56}
 .err-msg{font-size:.8rem;color:#c0392b;margin-top:-8px;margin-bottom:.75rem}
-
 .metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:2rem}
 .metric{background:#fff;border:1px solid #eee;border-radius:10px;padding:1rem 1.1rem}
 .metric-lbl{font-size:.75rem;color:#888;margin-bottom:4px}
 .metric-val{font-size:1.6rem;font-weight:700;color:#1A5276}
 .metric-sub{font-size:.7rem;color:#aaa;margin-top:2px}
-
 .chart-block{margin-bottom:2rem}
-.chart-ttl{font-size:.9rem;font-weight:600;color:#222;margin-bottom:.25rem}
+.chart-ttl{font-size:.9rem;font-weight:600;margin-bottom:.25rem}
 .chart-sub{font-size:.75rem;color:#999;margin-bottom:.85rem}
 .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:9px}
 .bar-lbl{font-size:.78rem;color:#555;width:160px;flex-shrink:0;line-height:1.3}
 .bar-track{flex:1;height:22px;background:#eee;border-radius:4px;overflow:hidden}
-.bar-fill{height:100%;background:#1D9E75;border-radius:4px;transition:width .5s}
+.bar-fill{height:100%;background:#1D9E75;border-radius:4px}
 .bar-fill.alt{background:#5DCAA5}
 .bar-val{font-size:.78rem;color:#888;min-width:36px;text-align:right}
-
 .resp-list{display:flex;flex-direction:column;gap:12px}
 .resp-card{background:#fff;border:1px solid #eee;border-radius:10px;padding:1.1rem 1.25rem}
 .resp-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:6px}
@@ -117,30 +90,15 @@ textarea::placeholder{color:#bbb}
 .resp-open{margin-top:.6rem;padding:.6rem .8rem;background:#F8F8F6;border-radius:6px;font-size:.82rem;color:#555;line-height:1.6}
 .tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-top:.5rem}
 .tag{font-size:.72rem;padding:3px 9px;border-radius:20px;background:#F0F0EC;color:#666;border:1px solid #e0e0d8}
-
-.section-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;flex-wrap:wrap;gap:8px}
+.section-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
 .btn-sm{padding:6px 14px;font-size:.78rem;background:#fff;border:1px solid #ccc;border-radius:6px;cursor:pointer;color:#666;font-family:inherit}
-.btn-sm:hover{border-color:#888;color:#333}
-.btn-sm.danger{border-color:#e74c3c;color:#e74c3c}
-.btn-sm.danger:hover{background:#fdf2f2}
-
+.btn-sm:hover{border-color:#888}
 .empty{text-align:center;padding:3rem;color:#bbb;font-size:.9rem}
 .loading{text-align:center;padding:2rem;color:#888;font-size:.9rem}
-
-/* ── 設定提醒 ── */
-.setup-notice{background:#FFF8E1;border:1px solid #F9A825;border-radius:10px;padding:1rem 1.25rem;margin-bottom:1.5rem;font-size:.85rem;color:#7A5800}
-.setup-notice strong{display:block;margin-bottom:.25rem;font-size:.9rem}
-
-@media(max-width:540px){
-  .scale-btns{gap:3px}
-  .sbtn{width:36px;height:36px;font-size:.85rem}
-  .scale-lbl{min-width:44px;font-size:.7rem}
-  .bar-lbl{width:110px}
-}
+@media(max-width:540px){.sbtn{width:36px;height:36px;font-size:.85rem}.scale-lbl{min-width:44px;font-size:.7rem}.bar-lbl{width:110px}}
 </style>
 </head>
 <body>
-
 <header class="site-header">
   <div class="inner">
     <h1>滿意度問卷調查</h1>
@@ -148,23 +106,17 @@ textarea::placeholder{color:#bbb}
     <p>臺北市立文獻館主辦　　國立臺灣藝術大學執行</p>
   </div>
 </header>
-
 <nav class="nav-bar">
   <div class="inner">
     <button class="nav-tab active" onclick="showPage('survey',this)">填寫問卷</button>
     <button class="nav-tab" onclick="showPage('admin',this)">統計報告</button>
   </div>
 </nav>
-
 <main class="main">
-
-  <!-- ══════════ 問卷頁 ══════════ -->
   <div id="page-survey" class="page active">
     <div id="form-wrap">
       <div class="prog-wrap"><div class="prog-fill" id="prog" style="width:0%"></div></div>
-
       <span class="sec">一、基本資料</span>
-
       <div class="q">
         <div class="ql"><span class="qn">Q1</span>您所參加的研習梯次為？</div>
         <div class="opts" id="q1">
@@ -172,7 +124,6 @@ textarea::placeholder{color:#bbb}
           <label class="opt"><div class="circle"><div class="circle-in"></div></div><span class="opt-txt">有機材質場（7月15–16日）</span></label>
         </div>
       </div>
-
       <div class="q">
         <div class="ql"><span class="qn">Q2</span>您的單位類別為？</div>
         <div class="opts" id="q2">
@@ -182,54 +133,23 @@ textarea::placeholder{color:#bbb}
           <label class="opt"><div class="circle"><div class="circle-in"></div></div><span class="opt-txt">第四類　臺北市私有古物管理單位</span></label>
         </div>
       </div>
-
       <span class="sec">二、課程內容滿意度</span>
       <div class="hint" style="margin-bottom:1rem">請依滿意程度圈選：1＝非常不滿意　5＝非常滿意</div>
-
-      <div class="q"><div class="ql"><span class="qn">Q3</span>古物管理維護制度與相關法規說明</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q3"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q4</span>古物管理維護範本說明</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q4"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q5</span>古物保管單位組織架構與人員編制、古物財產清冊與基本資料</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q5"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q6</span>材質特性與常見劣化狀況判讀</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q6"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q7</span>古物日常管理維護作業</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q7"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q8</span>古物防災安全作業（風險管理、緊急應變、搶救規劃）</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q8"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q9</span>古物管理維護範本填寫實務</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q9"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
+      <div class="q"><div class="ql"><span class="qn">Q3</span>古物管理維護制度與相關法規說明</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q3"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q4</span>古物管理維護範本說明</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q4"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q5</span>古物保管單位組織架構與人員編制、古物財產清冊與基本資料</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q5"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q6</span>材質特性與常見劣化狀況判讀</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q6"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q7</span>古物日常管理維護作業</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q7"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q8</span>古物防災安全作業（風險管理、緊急應變、搶救規劃）</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q8"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q9</span>古物管理維護範本填寫實務</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q9"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
       <span class="sec">三、講師與教材</span>
       <div class="hint" style="margin-bottom:1rem">請依滿意程度圈選：1＝非常不滿意　5＝非常滿意</div>
-
-      <div class="q"><div class="ql"><span class="qn">Q10</span>講師授課表達的清晰度</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q10"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q11</span>教材手冊的完整性與可用性</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q11"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
-      <div class="q"><div class="ql"><span class="qn">Q12</span>案例分析的貼近實務程度</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q12"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
+      <div class="q"><div class="ql"><span class="qn">Q10</span>講師授課表達的清晰度</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q10"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q11</span>教材手冊的完整性與可用性</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q11"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q12</span>案例分析的貼近實務程度</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q12"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
       <span class="sec">四、整體評估</span>
-
-      <div class="q">
-        <div class="ql"><span class="qn">Q13</span>參加研習後，您對撰寫古物管理維護計畫的信心提升程度</div>
-        <div class="hint">1＝幾乎沒有　5＝大幅提升</div>
-        <div class="scale-wrap"><span class="scale-lbl">幾乎沒有</span><div class="scale-btns" id="q13"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">大幅提升</span></div>
-      </div>
-
-      <div class="q"><div class="ql"><span class="qn">Q14</span>整體研習滿意度</div>
-        <div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q14"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
-
+      <div class="q"><div class="ql"><span class="qn">Q13</span>參加研習後，您對撰寫古物管理維護計畫的信心提升程度</div><div class="hint">1＝幾乎沒有　5＝大幅提升</div><div class="scale-wrap"><span class="scale-lbl">幾乎沒有</span><div class="scale-btns" id="q13"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">大幅提升</span></div></div>
+      <div class="q"><div class="ql"><span class="qn">Q14</span>整體研習滿意度</div><div class="scale-wrap"><span class="scale-lbl">非常不滿意</span><div class="scale-btns" id="q14"><button class="sbtn" data-v="1">1</button><button class="sbtn" data-v="2">2</button><button class="sbtn" data-v="3">3</button><button class="sbtn" data-v="4">4</button><button class="sbtn" data-v="5">5</button></div><span class="scale-lbl r">非常滿意</span></div></div>
       <div class="q">
         <div class="ql"><span class="qn">Q15</span>您最希望未來研習加強的面向（可複選）</div>
         <div class="opts" id="q15">
@@ -241,26 +161,16 @@ textarea::placeholder{color:#bbb}
           <label class="opt"><div class="square"><span class="chk">✓</span></div><span class="opt-txt">修護委外評估與廠商遴選</span></label>
         </div>
       </div>
-
-      <div class="q">
-        <div class="ql"><span class="qn">Q16</span>本次研習最有收穫的部分為何？</div>
-        <textarea id="q16" placeholder="請輸入您的意見……"></textarea>
-      </div>
-
-      <div class="q">
-        <div class="ql"><span class="qn">Q17</span>對於未來研習活動的建議或其他意見</div>
-        <textarea id="q17" placeholder="請輸入您的意見……"></textarea>
-      </div>
-
+      <div class="q"><div class="ql"><span class="qn">Q16</span>本次研習最有收穫的部分為何？</div><textarea id="q16" placeholder="請輸入您的意見……"></textarea></div>
+      <div class="q"><div class="ql"><span class="qn">Q17</span>對於未來研習活動的建議或其他意見</div><textarea id="q17" placeholder="請輸入您的意見……"></textarea></div>
       <div class="btn-row">
         <button class="btn-primary" id="submit-btn" onclick="submitSurvey()">送出問卷</button>
         <button class="btn-ghost" onclick="resetForm()">重新填寫</button>
       </div>
     </div>
-
     <div id="done-wrap" style="display:none;padding:2rem 0">
       <div class="done-box">
-        <div class="icon">✅</div>
+        <p style="font-size:2rem;margin-bottom:.5rem">✅</p>
         <h3>問卷已送出，感謝您的寶貴意見！</h3>
         <p style="margin-bottom:1.25rem">您的回饋將有助於提升未來研習品質。</p>
         <button class="btn-ghost" onclick="resetForm()">再填一份</button>
@@ -268,276 +178,57 @@ textarea::placeholder{color:#bbb}
     </div>
   </div>
 
-  <!-- ══════════ 統計後台 ══════════ -->
   <div id="page-admin" class="page">
     <div id="admin-guard">
       <div class="guard-box">
         <h3>🔒 統計後台</h3>
-        <p>請輸入管理者密碼以查看統計報告</p>
+        <p>請輸入管理者密碼</p>
         <input type="password" id="pw-input" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()">
-        <div id="pw-err" class="err-msg" style="display:none">密碼錯誤，請再試一次</div>
+        <div id="pw-err" class="err-msg" style="display:none">密碼錯誤</div>
         <button class="btn-primary" style="width:100%" onclick="checkPw()">登入</button>
       </div>
     </div>
-    <div id="admin-content" style="display:none">
-      <div id="report"></div>
-    </div>
+    <div id="admin-content" style="display:none"><div id="report"></div></div>
   </div>
-
 </main>
-
 <script>
-/* ══ 設定區（拿到 Apps Script 網址後填在這裡） ══ */
-const SUPABASE_URL = 'https://mxmmknfoedjcpnkaedlc.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14bW1rbmZvZWRqY3Bua2FlZGxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyODQ5ODAsImV4cCI6MjA5Nzg2MDk4MH0.UiOcd6uprqpDZOdEgDIjDiq0CZ2G7aEvQEtJ3eOm_Sw';
-  const API_URL = `${SUPABASE_URL}/rest/v1/responses`;
-const ADMIN_PW = 'antique2026';  // 可自行修改密碼
+const SUPABASE_URL='https://mxmmknfoedjcpnkaedlc.supabase.co';
+const SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14bW1rbmZvZWRqY3Bua2FlZGxjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIyODQ5ODAsImV4cCI6MjA5Nzg2MDk4MH0.UiOcd6uprqpDZOdEgDIjDiq0CZ2G7aEvQEtJ3eOm_Sw';
+const ADMIN_PW='antique2026';
+const API=SUPABASE_URL+'/rest/v1/responses';
+const HDR={'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json'};
+const SIDS=['q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14'];
+const SLBL={q3:'制度與法規說明',q4:'管理維護範本說明',q5:'組織架構與清冊',q6:'材質劣化判讀',q7:'日常管理維護',q8:'防災安全作業',q9:'範本填寫實務',q10:'講師授課清晰度',q11:'教材完整性',q12:'案例貼近實務',q13:'信心提升程度',q14:'整體滿意度'};
+const COPTS=['古物劣化診斷與判讀實務','管理維護計畫撰寫與補助申請','古物保存環境與設備改善','災害應變與緊急搶救演練','古物清冊與數位化建置','修護委外評估與廠商遴選'];
 
-/* ══════════════════════════════════════════════ */
-const SCALE_IDS = ['q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14'];
-const SCALE_LABELS = {
-  q3:'制度與法規說明', q4:'管理維護範本說明', q5:'組織架構與清冊',
-  q6:'材質劣化判讀', q7:'日常管理維護', q8:'防災安全作業',
-  q9:'範本填寫實務', q10:'講師授課清晰度', q11:'教材完整性',
-  q12:'案例貼近實務', q13:'信心提升程度', q14:'整體滿意度'
-};
-const CHECK_OPTS = ['古物劣化診斷與判讀實務','管理維護計畫撰寫與補助申請','古物保存環境與設備改善','災害應變與緊急搶救演練','古物清冊與數位化建置','修護委外評估與廠商遴選'];
+function showPage(p,btn){document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.nav-tab').forEach(e=>e.classList.remove('active'));document.getElementById('page-'+p).classList.add('active');btn.classList.add('active');if(p==='admin'&&document.getElementById('admin-content').style.display!=='none')loadReport();}
 
-function showPage(p, btn) {
-  document.querySelectorAll('.page').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(el => el.classList.remove('active'));
-  document.getElementById('page-'+p).classList.add('active');
-  btn.classList.add('active');
-  if(p === 'admin' && document.getElementById('admin-content').style.display !== 'none') renderReport();
-}
+document.querySelectorAll('#q1 .opt,#q2 .opt').forEach(o=>{o.addEventListener('click',()=>{o.closest('.opts').querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');up();});});
+document.querySelectorAll('#q15 .opt').forEach(o=>{o.addEventListener('click',()=>{o.classList.toggle('sel');up();});});
+SIDS.forEach(id=>{document.getElementById(id).querySelectorAll('.sbtn').forEach(b=>{b.addEventListener('click',()=>{b.closest('.scale-btns').querySelectorAll('.sbtn').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');up();});});});
+['q16','q17'].forEach(id=>document.getElementById(id).addEventListener('input',up));
 
-/* ── 問卷互動 ── */
-document.querySelectorAll('#q1 .opt, #q2 .opt').forEach(opt => {
-  opt.closest('.opts').querySelectorAll('.opt');
-  opt.addEventListener('click', () => {
-    opt.closest('.opts').querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
-    opt.classList.add('sel');
-    updateProg();
-  });
-});
+function up(){let c=0;if(document.querySelector('#q1 .sel'))c++;if(document.querySelector('#q2 .sel'))c++;SIDS.forEach(id=>{if(document.querySelector('#'+id+' .sel'))c++;});if(document.querySelector('#q15 .sel'))c++;if(document.getElementById('q16').value.trim())c++;if(document.getElementById('q17').value.trim())c++;document.getElementById('prog').style.width=Math.min(100,Math.round(c/17*100))+'%';}
 
-document.getElementById('q15').querySelectorAll('.opt').forEach(opt => {
-  opt.addEventListener('click', () => { opt.classList.toggle('sel'); updateProg(); });
-});
+function gfd(){const sel=id=>{const s=document.querySelector('#'+id+' .sel .opt-txt');return s?s.textContent:null;};const sc=id=>{const s=document.querySelector('#'+id+' .sel');return s?parseInt(s.dataset.v):null;};const ch=[];document.querySelectorAll('#q15 .sel .opt-txt').forEach(e=>ch.push(e.textContent));return{q1:sel('q1'),q2:sel('q2'),q3:sc('q3'),q4:sc('q4'),q5:sc('q5'),q6:sc('q6'),q7:sc('q7'),q8:sc('q8'),q9:sc('q9'),q10:sc('q10'),q11:sc('q11'),q12:sc('q12'),q13:sc('q13'),q14:sc('q14'),q15:ch.join('、')||null,q16:document.getElementById('q16').value.trim()||null,q17:document.getElementById('q17').value.trim()||null};}
 
-SCALE_IDS.forEach(id => {
-  document.getElementById(id).querySelectorAll('.sbtn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      btn.closest('.scale-btns').querySelectorAll('.sbtn').forEach(b => b.classList.remove('sel'));
-      btn.classList.add('sel');
-      updateProg();
-    });
-  });
-});
+async function submitSurvey(){const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='送出中…';try{const r=await fetch(API,{method:'POST',headers:Object.assign({},HDR,{'Prefer':'return=minimal'}),body:JSON.stringify(gfd())});if(!r.ok)throw new Error(r.status);document.getElementById('form-wrap').style.display='none';document.getElementById('done-wrap').style.display='block';}catch(e){alert('送出失敗（'+e.message+'），請再試一次。');btn.disabled=false;btn.textContent='送出問卷';}}
 
-['q16','q17'].forEach(id => document.getElementById(id).addEventListener('input', updateProg));
+function resetForm(){document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));document.querySelectorAll('.sbtn').forEach(b=>b.classList.remove('sel'));document.getElementById('q16').value='';document.getElementById('q17').value='';up();document.getElementById('form-wrap').style.display='block';document.getElementById('done-wrap').style.display='none';document.getElementById('submit-btn').disabled=false;document.getElementById('submit-btn').textContent='送出問卷';}
 
-function countAnswered() {
-  let c = 0;
-  ['q1','q2'].forEach(id => { if(document.querySelector('#'+id+' .sel')) c++; });
-  SCALE_IDS.forEach(id => { if(document.querySelector('#'+id+' .sel')) c++; });
-  if(document.querySelector('#q15 .sel')) c++;
-  if(document.getElementById('q16').value.trim()) c++;
-  if(document.getElementById('q17').value.trim()) c++;
-  return c;
-}
+function checkPw(){if(document.getElementById('pw-input').value===ADMIN_PW){document.getElementById('admin-guard').style.display='none';document.getElementById('admin-content').style.display='block';loadReport();}else{document.getElementById('pw-err').style.display='block';}}
 
-function updateProg() {
-  document.getElementById('prog').style.width = Math.min(100, Math.round(countAnswered()/17*100)) + '%';
-}
-
-function getFormData() {
-  const d = { ts: new Date().toISOString() };
-  ['q1','q2'].forEach((id,i) => {
-    const s = document.querySelector('#'+id+' .sel .opt-txt');
-    d[id] = s ? s.textContent : null;
-  });
-  SCALE_IDS.forEach(id => {
-    const s = document.querySelector('#'+id+' .sel');
-    d[id] = s ? parseInt(s.dataset.v) : null;
-  });
-  const checks = [];
-  document.querySelectorAll('#q15 .sel .opt-txt').forEach(el => checks.push(el.textContent));
-  d.q15 = checks;
-  d.q16 = document.getElementById('q16').value.trim();
-  d.q17 = document.getElementById('q17').value.trim();
-  return d;
-}
-
-async function submitSurvey() {
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = '送出中…';
-  const data = getFormData();
-
-  if(!API_URL) {
-    alert('⚠️ 尚未設定 API_URL，請先完成 Apps Script 部署並填入網址。\n\n資料已記錄在 console，供測試用。');
-    console.log('問卷資料：', data);
-    btn.disabled = false;
-    btn.textContent = '送出問卷';
-    return;
-  }
-
-  try {
-    const record = {
-      q1: data.q1 || null,
-      q2: data.q2 || null,
-      q3: data.q3 || null,
-      q4: data.q4 || null,
-      q5: data.q5 || null,
-      q6: data.q6 || null,
-      q7: data.q7 || null,
-      q8: data.q8 || null,
-      q9: data.q9 || null,
-      q10: data.q10 || null,
-      q11: data.q11 || null,
-      q12: data.q12 || null,
-      q13: data.q13 || null,
-      q14: data.q14 || null,
-      q15: (data.q15 || []).join('、') || null,
-      q16: data.q16 || null,
-      q17: data.q17 || null
-    };
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json',
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify(record)
-    });
-    if (!res.ok) throw new Error('API error');
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('done-wrap').style.display = 'block';
-  } catch(e) {
-    alert('送出失敗，請確認網路連線後再試。');
-    btn.disabled = false;
-    btn.textContent = '送出問卷';
-  }
-}
-
-function resetForm() {
-  document.querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
-  document.querySelectorAll('.sbtn').forEach(b => b.classList.remove('sel'));
-  document.getElementById('q16').value = '';
-  document.getElementById('q17').value = '';
-  updateProg();
-  document.getElementById('form-wrap').style.display = 'block';
-  document.getElementById('done-wrap').style.display = 'none';
-  const btn = document.getElementById('submit-btn');
-  btn.disabled = false;
-  btn.textContent = '送出問卷';
-}
-
-/* ── 後台登入 ── */
-function checkPw() {
-  if(document.getElementById('pw-input').value === ADMIN_PW) {
-    document.getElementById('admin-guard').style.display = 'none';
-    document.getElementById('admin-content').style.display = 'block';
-    renderReport();
-  } else {
-    document.getElementById('pw-err').style.display = 'block';
-  }
-}
-
-/* ── 統計報告 ── */
-async function renderReport() {
-  const area = document.getElementById('report');
-  area.innerHTML = '<div class="loading">載入中…</div>';
-  let responses = [];
-  try {
-    const res = await fetch(API_URL + '?select=*&order=created_at.desc', {
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`
-      }
-    });
-    if (!res.ok) throw new Error('fetch error');
-    responses = await res.json();
-  } catch(e) {
-    area.innerHTML = '<div class="empty">無法取得資料，請確認網路連線。</div>';
-    return;
-  }
-
-  if(responses.length === 0) {
-    area.innerHTML = '<div class="empty">尚無回覆資料</div>';
-    return;
-  }
-
-  const n = responses.length;
-  const avg = key => {
-    const vals = responses.map(r => r[key]).filter(v => v != null && !isNaN(v));
-    return vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(2) : '—';
-  };
-
-  const s1 = responses.filter(r => r.q1 && r.q1.includes('無機')).length;
-  const s2 = responses.filter(r => r.q1 && r.q1.includes('有機')).length;
-
-  let html = `
-  <div class="metric-grid">
-    <div class="metric"><div class="metric-lbl">總回覆數</div><div class="metric-val">${n}</div><div class="metric-sub">份</div></div>
-    <div class="metric"><div class="metric-lbl">整體滿意度</div><div class="metric-val">${avg('q14')}</div><div class="metric-sub">滿分 5 分</div></div>
-    <div class="metric"><div class="metric-lbl">信心提升程度</div><div class="metric-val">${avg('q13')}</div><div class="metric-sub">滿分 5 分</div></div>
-    <div class="metric"><div class="metric-lbl">梯次</div><div class="metric-val" style="font-size:1rem;margin-top:6px;line-height:1.8">無機 ${s1} 人<br>有機 ${s2} 人</div></div>
-  </div>
-
-  <div class="chart-block">
-    <div class="chart-ttl">各課程滿意度平均</div>
-    <div class="chart-sub">依課程順序，1–5 分</div>`;
-
-  SCALE_IDS.forEach(id => {
-    const vals = responses.map(r => r[id]).filter(v => v != null && !isNaN(v));
-    const a = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : 0;
-    html += `<div class="bar-row">
-      <div class="bar-lbl">${SCALE_LABELS[id]}</div>
-      <div class="bar-track"><div class="bar-fill" style="width:${Math.round(a/5*100)}%"></div></div>
-      <div class="bar-val">${a.toFixed(1)}</div>
-    </div>`;
-  });
-
-  html += `</div><div class="chart-block">
-    <div class="chart-ttl">未來期望加強面向</div>
-    <div class="chart-sub">複選統計（${n} 份）</div>`;
-
-  CHECK_OPTS.forEach(opt => {
-    const cnt = responses.filter(r => r.q15 && r.q15.includes(opt)).length;
-    html += `<div class="bar-row">
-      <div class="bar-lbl">${opt}</div>
-      <div class="bar-track"><div class="bar-fill alt" style="width:${Math.round(cnt/n*100)}%"></div></div>
-      <div class="bar-val">${cnt} 人</div>
-    </div>`;
-  });
-
-  html += `</div><div class="chart-block">
-    <div class="section-hd">
-      <div class="chart-ttl">所有回覆明細（共 ${n} 份）</div>
-    </div>
-    <div class="resp-list">`;
-
-  responses.slice().reverse().forEach(r => {
-    const dt = r.ts ? new Date(r.ts).toLocaleString('zh-TW', {year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}) : '—';
-    const badge = r.q1 ? (r.q1.includes('無機') ? '無機材質場' : '有機材質場') : '—';
-    const scaleRows = SCALE_IDS.map(id => `<div class="resp-row"><span class="resp-q">${SCALE_LABELS[id]}</span><span class="resp-a">${r[id] != null ? r[id]+' 分' : '—'}</span></div>`).join('');
-    const tags = (r.q15 && r.q15.length) ? `<div class="tag-row">${r.q15.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : '';
-    const open16 = r.q16 ? `<div class="resp-open"><strong>最有收穫：</strong>${r.q16}</div>` : '';
-    const open17 = r.q17 ? `<div class="resp-open" style="margin-top:5px"><strong>建議：</strong>${r.q17}</div>` : '';
-    html += `<div class="resp-card">
-      <div class="resp-hd"><span class="resp-badge">${badge}</span><span class="resp-time">${dt}</span></div>
-      <div class="resp-row"><span class="resp-q">單位類別</span><span class="resp-a">${r.q2||'—'}</span></div>
-      ${scaleRows}${tags}${open16}${open17}
-    </div>`;
-  });
-
-  html += `</div></div>`;
-  area.innerHTML = html;
-}
+async function loadReport(){const area=document.getElementById('report');area.innerHTML='<div class="loading">載入中…</div>';let rows=[];try{const r=await fetch(API+'?select=*&order=created_at.desc&limit=500',{headers:HDR});if(!r.ok)throw new Error(r.status);rows=await r.json();}catch(e){area.innerHTML='<div class="empty">載入失敗：'+e.message+'</div>';return;}
+if(!rows.length){area.innerHTML='<div class="empty">尚無回覆資料</div>';return;}
+const n=rows.length;const avg=k=>{const v=rows.map(r=>r[k]).filter(v=>v!=null);return v.length?(v.reduce((a,b)=>a+b,0)/v.length).toFixed(2):'—';};const s1=rows.filter(r=>r.q1&&r.q1.includes('無機')).length;const s2=rows.filter(r=>r.q1&&r.q1.includes('有機')).length;
+let h=`<div class="metric-grid"><div class="metric"><div class="metric-lbl">總回覆數</div><div class="metric-val">${n}</div><div class="metric-sub">份</div></div><div class="metric"><div class="metric-lbl">整體滿意度</div><div class="metric-val">${avg('q14')}</div><div class="metric-sub">滿分 5 分</div></div><div class="metric"><div class="metric-lbl">信心提升程度</div><div class="metric-val">${avg('q13')}</div><div class="metric-sub">滿分 5 分</div></div><div class="metric"><div class="metric-lbl">梯次</div><div class="metric-val" style="font-size:1rem;margin-top:4px;line-height:1.9">無機 ${s1} 人<br>有機 ${s2} 人</div></div></div>`;
+h+=`<div class="chart-block"><div class="chart-ttl">各課程滿意度平均</div><div class="chart-sub">依課程順序，1–5 分</div>`;
+SIDS.forEach(id=>{const v=rows.map(r=>r[id]).filter(v=>v!=null);const a=v.length?v.reduce((a,b)=>a+b,0)/v.length:0;h+=`<div class="bar-row"><div class="bar-lbl">${SLBL[id]}</div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(a/5*100)}%"></div></div><div class="bar-val">${a.toFixed(1)}</div></div>`;});
+h+=`</div><div class="chart-block"><div class="chart-ttl">未來期望加強面向</div><div class="chart-sub">複選統計（${n} 份）</div>`;
+COPTS.forEach(opt=>{const cnt=rows.filter(r=>r.q15&&r.q15.includes(opt)).length;h+=`<div class="bar-row"><div class="bar-lbl">${opt}</div><div class="bar-track"><div class="bar-fill alt" style="width:${Math.round(cnt/n*100)}%"></div></div><div class="bar-val">${cnt} 人</div></div>`;});
+h+=`</div><div class="chart-block"><div class="section-hd"><div class="chart-ttl">所有回覆明細（${n} 份）</div><button class="btn-sm" onclick="loadReport()">重新整理</button></div><div class="resp-list">`;
+rows.forEach(r=>{const dt=r.created_at?new Date(r.created_at).toLocaleString('zh-TW',{year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}):'—';const badge=r.q1?(r.q1.includes('無機')?'無機材質場':'有機材質場'):'—';const sr=SIDS.map(id=>`<div class="resp-row"><span class="resp-q">${SLBL[id]}</span><span class="resp-a">${r[id]!=null?r[id]+' 分':'—'}</span></div>`).join('');const tags=r.q15?`<div class="tag-row">${r.q15.split('、').map(t=>`<span class="tag">${t}</span>`).join('')}</div>`:'';const o16=r.q16?`<div class="resp-open"><strong>最有收穫：</strong>${r.q16}</div>`:'';const o17=r.q17?`<div class="resp-open" style="margin-top:5px"><strong>建議：</strong>${r.q17}</div>`:'';h+=`<div class="resp-card"><div class="resp-hd"><span class="resp-badge">${badge}</span><span class="resp-time">${dt}</span></div><div class="resp-row"><span class="resp-q">單位類別</span><span class="resp-a">${r.q2||'—'}</span></div>${sr}${tags}${o16}${o17}</div>`;});
+h+=`</div></div>`;area.innerHTML=h;}
 </script>
 </body>
 </html>
